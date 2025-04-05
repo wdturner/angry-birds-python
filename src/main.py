@@ -12,7 +12,7 @@ from level import Level
 pygame.init()
 screen = pygame.display.set_mode((1200, 650))
 redbird = pygame.image.load(
-    "../resources/images/red-bird3.png").convert_alpha()
+    "../resources/images/wes.png").convert_alpha()
 background2 = pygame.image.load(
     "../resources/images/background3.png").convert_alpha()
 sling_image = pygame.image.load(
@@ -86,7 +86,7 @@ wall = False
 # Static floor
 static_body = pm.Body(body_type=pm.Body.STATIC)
 static_lines = [pm.Segment(static_body, (0.0, 060.0), (1200.0, 060.0), 0.0)]
-static_lines1 = [pm.Segment(static_body, (1200.0, 060.0), (1200.0, 800.0), 0.0)]
+static_lines1 = [pm.Segment(static_body, (1200.0, 060.0), (1200.0, 800.0), 0.0), pm.Segment(static_body, (0.0, 060.0), (0.0, 800.0), 0.0)]
 for line in static_lines:
     line.elasticity = 0.95
     line.friction = 1
@@ -344,7 +344,7 @@ while running:
             space.gravity = (0.0, -10.0)
             level.bool_space = True
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_n:
-            space.gravity = (0.0, -700.0)
+            space.gravity = (-10.0, -700.0)
             level.bool_space = False
         if (pygame.mouse.get_pressed()[0] and x_mouse > 100 and
                 x_mouse < 250 and y_mouse > 370 and y_mouse < 550):
